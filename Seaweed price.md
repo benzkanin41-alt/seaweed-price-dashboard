@@ -134,10 +134,10 @@ cntyNm=Thailand
 เดือนล่าสุด ณ ตอนสร้างต้นฉบับ:
 
 ```text
-2026-04
+2026-05
 ```
 
-หมายเหตุ: วันที่สร้างต้นฉบับคือ `2026-06-10` และ query live สำหรับ HS `121221` + Thailand คืนข้อมูลล่าสุดถึง `2026-04`; ยังไม่มี row ของ `2026-05` สำหรับ HS/country นี้
+หมายเหตุ: อัปเดตล่าสุดวันที่ `2026-06-25` และ query live สำหรับ HS `121221` + Thailand คืนข้อมูลล่าสุดถึง `2026-05`; ยังไม่มี row รายเดือนเต็มของ `2026-06` สำหรับ HS/country นี้
 
 ## Data Model
 
@@ -294,20 +294,20 @@ YoY = current_ytd_weighted_price / previous_year_same_months_weighted_price - 1
 ตัวอย่าง validation ล่าสุดจากต้นฉบับ:
 
 ```text
-Latest monthly period: 2026-04
-Monthly MoM: -1.9%
+Latest monthly period: 2026-05
+Monthly MoM: +2.5%
 Monthly QoQ: null
-Monthly YoY: -0.2%
+Monthly YoY: -0.6%
 
 Latest quarter period: 2026Q2
 Quarterly MoM: null
-Quarterly QoQ: -3.4%
-Quarterly YoY: -3.7%
+Quarterly QoQ: -2.6%
+Quarterly YoY: -2.9%
 
-Latest year period: 2026 YTD Jan-Apr
+Latest year period: 2026 YTD Jan-May
 Yearly MoM: null
 Yearly QoQ: null
-Yearly YoY: +1.3%
+Yearly YoY: +0.9%
 ```
 
 ## Dashboard Layout
@@ -319,7 +319,7 @@ Yearly YoY: +1.3%
 1. Header
    - Title: `Seaweed Export Price from Korea to Thailand`
    - Subtitle: `HS 121221 | Country Thailand | Source Korea Customs Service Trade Statistics`
-   - Coverage pill เช่น `2015-01 to 2026-04 | latest Apr 2026`
+   - Coverage pill เช่น `2015-01 to 2026-05 | latest May 2026`
 
 2. KPI cards
    - Latest selected grain price
@@ -509,16 +509,16 @@ Table header ต้องเปลี่ยนตาม grain และห้า
 ```text
 Generated date: 2026-06-10
 Dashboard start: 2015-01
-Dashboard latest period: 2026-04
-Latest month label: Apr 2026
-Latest month price: 22,880.3162 $/Ton
-Latest YTD label: 2026 YTD Jan-Apr
-Latest YTD price: 23,447.4096 $/Ton
+Dashboard latest period: 2026-05
+Latest month label: May 2026
+Latest month price: 23,462.1944 $/Ton
+Latest YTD label: 2026 YTD Jan-May
+Latest YTD price: 23,449.2806 $/Ton
 
-Monthly rows reviewed: 172
+Monthly rows reviewed: 173
 Workbook monthly rows reviewed: 165
-Live monthly rows added: 7
-Dashboard monthly rows: 136
+Live monthly rows added: 8
+Dashboard monthly rows: 137
 Dashboard quarter rows: 46
 Dashboard year rows: 12
 ```
