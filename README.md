@@ -25,11 +25,11 @@ Interactive local/static dashboard สำหรับติดตามต้น
 
 ## Current Snapshot
 
-- Dashboard coverage: `2015-01` to `2026-05`
-- Latest month: `May 2026`
-- Latest monthly price: `23,462.1944 $/Ton`
-- Latest YTD: `2026 YTD Jan-May`
-- Latest YTD price: `23,449.2806 $/Ton`
+- Dashboard coverage: `2015-01` to `2026-06`
+- Latest month: `Jun 2026`
+- Latest monthly price: `21,631.4320 $/Ton`
+- Latest YTD: `2026 YTD Jan-Jun`
+- Latest YTD price: `23,298.9078 $/Ton`
 
 ## Growth Rules
 
