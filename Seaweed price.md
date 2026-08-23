@@ -14,7 +14,7 @@ D:\OneDrive\stock\Valuation หุ้น\TKN\Seaweed price.md
 2. แหล่งข้อมูลหลักคือ Korea Customs Service Trade Statistics และไฟล์ workbook `Seaweed Price sep 68.xlsx`
 3. ต้องใช้ HS Code `121221`, Country `Thailand`, Item/description `Fit for human consumption`
 4. ต้องย้อนหลังตั้งแต่ปี 2558 หรือ `2015-01` ถึงเดือนล่าสุดที่ source คืนข้อมูลจริง
-5. ผู้ใช้ขอให้เป็น local dashboard จึงต้องเปิดผ่าน local URL ได้ เช่น `http://127.0.0.1:8766/outputs/seaweed_cost_dashboard.html`
+5. ผู้ใช้ขอให้เป็น local dashboard จึงต้องเปิดผ่าน local URL ได้ เช่น `http://127.0.0.1:8768/outputs/seaweed_cost_dashboard.html`
 6. ผู้ใช้ขอให้เติมข้อมูลถึงเดือนล่าสุด จึงต้อง query live endpoint เพิ่มจาก workbook latest period
 7. ผู้ใช้ขอให้กราฟ Growth รายเดือนมี filter เลือก `YoY / MoM / QoQ`
 8. ผู้ใช้ตั้งข้อสังเกตสำคัญว่า metric ต้องสัมพันธ์กับ time grain:
@@ -65,7 +65,7 @@ seaweed_cost_dashboard_data.csv
 แนะนำให้วาง output dashboard ไว้ในโฟลเดอร์ `outputs` ของ Codex workspace แล้วเปิดผ่าน local server เช่น:
 
 ```text
-http://127.0.0.1:8766/outputs/seaweed_cost_dashboard.html
+http://127.0.0.1:8768/outputs/seaweed_cost_dashboard.html
 ```
 
 ## แหล่งข้อมูลหลัก
@@ -134,10 +134,10 @@ cntyNm=Thailand
 เดือนล่าสุด ณ ตอนสร้างต้นฉบับ:
 
 ```text
-2026-06
+2026-07
 ```
 
-Note: Updated 2026-07-24. The live Trade Data Korea endpoint returned HS 121221 for Thailand through 2026-06.
+Note: Updated 2026-08-23. The live Trade Data Korea endpoint returned HS 121221 for Thailand through 2026-07.
 
 ## Data Model
 
@@ -294,20 +294,20 @@ YoY = current_ytd_weighted_price / previous_year_same_months_weighted_price - 1
 ตัวอย่าง validation ล่าสุดจากต้นฉบับ:
 
 ```text
-Latest monthly period: 2026-06
-Monthly MoM: -7.8%
+Latest monthly period: 2026-07
+Monthly MoM: -9.7%
 Monthly QoQ: null
-Monthly YoY: -13.8%
+Monthly YoY: -19.6%
 
-Latest quarter period: 2026Q2
+Latest quarter period: 2026Q3
 Quarterly MoM: null
-Quarterly QoQ: -3.8%
-Quarterly YoY: -4.0%
+Quarterly QoQ: -14.3%
+Quarterly YoY: -17.1%
 
-Latest year period: 2026 YTD Jan-Jun
+Latest year period: 2026 YTD Jan-Jul
 Yearly MoM: null
 Yearly QoQ: null
-Yearly YoY: -0.8%
+Yearly YoY: -1.6%
 ```
 
 ## Dashboard Layout
@@ -319,7 +319,7 @@ Yearly YoY: -0.8%
 1. Header
    - Title: `Seaweed Export Price from Korea to Thailand`
    - Subtitle: `HS 121221 | Country Thailand | Source Korea Customs Service Trade Statistics`
-   - Coverage pill เช่น `2015-01 to 2026-06 | latest Jun 2026`
+   - Coverage pill เช่น `2015-01 to 2026-07 | latest Jul 2026`
 
 2. KPI cards
    - Latest selected grain price
@@ -425,13 +425,13 @@ pathlib
 Local server example:
 
 ```powershell
-python -m http.server 8766 --bind 127.0.0.1
+python -m http.server 8768 --bind 127.0.0.1
 ```
 
 เปิด dashboard:
 
 ```text
-http://127.0.0.1:8766/outputs/seaweed_cost_dashboard.html
+http://127.0.0.1:8768/outputs/seaweed_cost_dashboard.html
 ```
 
 ## Validation Checklist
@@ -497,7 +497,7 @@ Table header ต้องเปลี่ยนตาม grain และห้า
 - outputs/seaweed_cost_dashboard_data.json
 - outputs/seaweed_cost_dashboard_data.csv
 
-จากนั้นเปิด local server และแจ้ง URL เช่น http://127.0.0.1:8766/outputs/seaweed_cost_dashboard.html
+จากนั้นเปิด local server และแจ้ง URL เช่น http://127.0.0.1:8768/outputs/seaweed_cost_dashboard.html
 
 ต้อง validate ว่า dashboard เปิดได้จริง, local URL เสิร์ฟไฟล์ล่าสุด, monthly ไม่มี QoQ, quarterly ไม่มี MoM, yearly มีแค่ YoY, และ source latest month ตรงกับ endpoint จริง
 ```
@@ -507,19 +507,19 @@ Table header ต้องเปลี่ยนตาม grain และห้า
 ใช้ snapshot นี้เป็นจุดเทียบ sanity check เท่านั้น เพราะข้อมูล live อาจเพิ่มเดือนใหม่ในอนาคต
 
 ```text
-Generated date: 2026-07-24
+Generated date: 2026-08-23
 Dashboard start: 2015-01
-Dashboard latest period: 2026-06
-Latest month label: Jun 2026
-Latest month price: 21,631.4320 $/Ton
-Latest YTD label: 2026 YTD Jan-Jun
-Latest YTD price: 23,298.9078 $/Ton
+Dashboard latest period: 2026-07
+Latest month label: Jul 2026
+Latest month price: 19,530.7612 $/Ton
+Latest YTD label: 2026 YTD Jan-Jul
+Latest YTD price: 23,183.3301 $/Ton
 
-Monthly rows reviewed: 174
+Monthly rows reviewed: 175
 Workbook monthly rows reviewed: 165
-Live monthly rows added: 9
-Dashboard monthly rows: 138
-Dashboard quarter rows: 46
+Live monthly rows added: 10
+Dashboard monthly rows: 139
+Dashboard quarter rows: 47
 Dashboard year rows: 12
 ```
 

@@ -118,25 +118,25 @@ Coverage ที่ได้จาก dashboard ล่าสุด:
 
 ```text
 Start: 2015-01
-Latest source period: 2026-06
-Latest month label: Jun 2026
-Latest month price: 21,631.4320 $/Ton
-Latest YTD label: 2026 YTD Jan-Jun
-Latest YTD price: 23,298.9078 $/Ton
+Latest source period: 2026-07
+Latest month label: Jul 2026
+Latest month price: 19,530.7612 $/Ton
+Latest YTD label: 2026 YTD Jan-Jul
+Latest YTD price: 23,183.3301 $/Ton
 ```
 
 Validation counts:
 
 ```text
-Monthly rows reviewed: 174
+Monthly rows reviewed: 175
 Workbook monthly rows reviewed: 165
-Live monthly rows added: 9
-Dashboard monthly rows: 138
-Dashboard quarter rows: 46
+Live monthly rows added: 10
+Dashboard monthly rows: 139
+Dashboard quarter rows: 47
 Dashboard year rows: 12
 ```
 
-Note: Updated 2026-07-24. The live Trade Data Korea endpoint returned HS 121221 for Thailand through 2026-06.
+Note: Updated 2026-08-23. The live Trade Data Korea endpoint returned HS 121221 for Thailand through 2026-07.
 
 ## Data model ที่ต้องสร้าง
 
@@ -295,20 +295,20 @@ YoY = current_ytd_weighted_price / previous_year_same_months_weighted_price - 1
 Latest validation ตัวอย่าง:
 
 ```text
-Latest monthly period: 2026-06
-Monthly MoM: -7.8%
+Latest monthly period: 2026-07
+Monthly MoM: -9.7%
 Monthly QoQ: null
-Monthly YoY: -13.8%
+Monthly YoY: -19.6%
 
-Latest quarter period: 2026Q2
+Latest quarter period: 2026Q3
 Quarterly MoM: null
-Quarterly QoQ: -3.8%
-Quarterly YoY: -4.0%
+Quarterly QoQ: -14.3%
+Quarterly YoY: -17.1%
 
-Latest year period: 2026 YTD Jan-Jun
+Latest year period: 2026 YTD Jan-Jul
 Yearly MoM: null
 Yearly QoQ: null
-Yearly YoY: -0.8%
+Yearly YoY: -1.6%
 ```
 
 ## Dashboard UI requirements
@@ -320,7 +320,7 @@ Yearly YoY: -0.8%
 1. Header
    - Title: `Seaweed Export Price from Korea to Thailand`
    - Subtitle: `HS 121221 | Country Thailand | Source Korea Customs Service Trade Statistics`
-   - Coverage pill เช่น `2015-01 to 2026-06 | latest Jun 2026`
+   - Coverage pill เช่น `2015-01 to 2026-07 | latest Jul 2026`
 
 2. KPI cards
    - Latest selected grain price
@@ -462,13 +462,13 @@ Build steps:
 Local server:
 
 ```powershell
-python -m http.server 8766 --bind 127.0.0.1
+python -m http.server 8768 --bind 127.0.0.1
 ```
 
 Local URL:
 
 ```text
-http://127.0.0.1:8766/outputs/seaweed_cost_dashboard.html
+http://127.0.0.1:8768/outputs/seaweed_cost_dashboard.html
 ```
 
 ## GitHub Pages publish steps
@@ -589,7 +589,7 @@ Table header ต้องเปลี่ยนตาม grain และห้า
 - outputs/seaweed_cost_dashboard_data.csv
 - outputs/Seaweed price.md
 
-จากนั้นเปิด local server และแจ้ง URL เช่น http://127.0.0.1:8766/outputs/seaweed_cost_dashboard.html
+จากนั้นเปิด local server และแจ้ง URL เช่น http://127.0.0.1:8768/outputs/seaweed_cost_dashboard.html
 
 ถ้าต้องการเปิด online ให้ copy static dashboard ไป github-site/index.html แล้ว push ขึ้น GitHub Pages
 
