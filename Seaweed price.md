@@ -137,7 +137,7 @@ cntyNm=Thailand
 2026-07
 ```
 
-Note: Updated 2026-08-23. The live Trade Data Korea endpoint returned HS 121221 for Thailand through 2026-07.
+Note: Updated 2026-08-27. The live Trade Data Korea endpoint returned HS 121221 for Thailand through 2026-07.
 
 ## Data Model
 
@@ -507,7 +507,7 @@ Table header ต้องเปลี่ยนตาม grain และห้า
 ใช้ snapshot นี้เป็นจุดเทียบ sanity check เท่านั้น เพราะข้อมูล live อาจเพิ่มเดือนใหม่ในอนาคต
 
 ```text
-Generated date: 2026-08-23
+Generated date: 2026-08-27
 Dashboard start: 2015-01
 Dashboard latest period: 2026-07
 Latest month label: Jul 2026

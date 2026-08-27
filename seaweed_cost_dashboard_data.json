@@ -15,7 +15,7 @@
     "latest_month_price": 19530.7612,
     "latest_ytd_label": "2026 YTD Jan-Jul",
     "latest_ytd_price": 23183.3301,
-    "generated_at": "2026-08-23T17:35:35",
+    "generated_at": "2026-08-27T12:13:51",
     "validation": {
       "monthly_rows_reviewed": 175,
       "workbook_monthly_rows_reviewed": 165,
@@ -31,7 +31,7 @@
         "status": "live_success",
         "endpoint": "https://tradedata.go.kr/cts/hmpgEng/retrieveTradeHsCountryEng.do",
         "query_period": "202510-202608",
-        "fetched_at": "2026-08-23T17:35:34",
+        "fetched_at": "2026-08-27T12:13:50",
         "cache_path": "work\\seaweed_tradedata_live_increment.json",
         "live_rows_returned": 10,
         "latest_live_period": "2026-07"
