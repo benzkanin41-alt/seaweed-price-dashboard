@@ -118,25 +118,25 @@ Coverage ที่ได้จาก dashboard ล่าสุด:
 
 ```text
 Start: 2015-01
-Latest source period: 2026-07
-Latest month label: Jul 2026
-Latest month price: 19,530.7612 $/Ton
-Latest YTD label: 2026 YTD Jan-Jul
-Latest YTD price: 23,183.3301 $/Ton
+Latest source period: 2026-08
+Latest month label: Aug 2026
+Latest month price: 20,308.5026 $/Ton
+Latest YTD label: 2026 YTD Jan-Aug
+Latest YTD price: 23,066.1144 $/Ton
 ```
 
 Validation counts:
 
 ```text
-Monthly rows reviewed: 175
+Monthly rows reviewed: 176
 Workbook monthly rows reviewed: 165
-Live monthly rows added: 10
-Dashboard monthly rows: 139
+Live monthly rows added: 11
+Dashboard monthly rows: 140
 Dashboard quarter rows: 47
 Dashboard year rows: 12
 ```
 
-Note: Updated 2026-08-27. The live Trade Data Korea endpoint returned HS 121221 for Thailand through 2026-07.
+Note: Updated 2026-09-25. The live Trade Data Korea endpoint returned HS 121221 for Thailand through 2026-08.
 
 ## Data model ที่ต้องสร้าง
 
@@ -270,6 +270,15 @@ QoQ = current_quarter_weighted_price / previous_quarter_weighted_price - 1
 YoY = current_quarter_weighted_price / same_quarter_previous_year_weighted_price - 1
 ```
 
+สำหรับไตรมาสล่าสุดที่ยังไม่ครบ 3 เดือน ให้เทียบแบบ like-for-like เท่านั้น:
+
+```text
+QoQ = current_qtd_weighted_price / previous_quarter_same_month_positions_weighted_price - 1
+YoY = current_qtd_weighted_price / previous_year_same_quarter_same_months_weighted_price - 1
+```
+
+ตัวอย่าง Q3 มี Jul-Aug: QoQ เทียบ Apr-May ของ Q2; YoY เทียบ Jul-Aug ของ Q3 ปีก่อน ต้องแสดง comparison basis ที่ใช้จริง และถ้าฐานมีเดือนเทียบไม่ครบให้ค่า growth เป็น null
+
 รายปี:
 
 - แสดงเฉพาะ `YoY`
@@ -295,20 +304,20 @@ YoY = current_ytd_weighted_price / previous_year_same_months_weighted_price - 1
 Latest validation ตัวอย่าง:
 
 ```text
-Latest monthly period: 2026-07
-Monthly MoM: -9.7%
+Latest monthly period: 2026-08
+Monthly MoM: +4.0%
 Monthly QoQ: null
-Monthly YoY: -19.6%
+Monthly YoY: -11.1%
 
 Latest quarter period: 2026Q3
 Quarterly MoM: null
-Quarterly QoQ: -14.3%
-Quarterly YoY: -17.1%
+Quarterly QoQ: -13.4% (2026Q2 Apr-May basis)
+Quarterly YoY: -16.0% (2025Q3 Jul-Aug basis)
 
-Latest year period: 2026 YTD Jan-Jul
+Latest year period: 2026 YTD Jan-Aug
 Yearly MoM: null
 Yearly QoQ: null
-Yearly YoY: -1.6%
+Yearly YoY: -2.0%
 ```
 
 ## Dashboard UI requirements
@@ -320,7 +329,7 @@ Yearly YoY: -1.6%
 1. Header
    - Title: `Seaweed Export Price from Korea to Thailand`
    - Subtitle: `HS 121221 | Country Thailand | Source Korea Customs Service Trade Statistics`
-   - Coverage pill เช่น `2015-01 to 2026-07 | latest Jul 2026`
+   - Coverage pill เช่น `2015-01 to 2026-08 | latest Aug 2026`
 
 2. KPI cards
    - Latest selected grain price
@@ -554,6 +563,7 @@ Pages URL: https://benzkanin41-alt.github.io/seaweed-price-dashboard/
 - คลิก chart แล้ว detail panel update
 - Price คำนวณจาก export value และ export weight
 - Latest YTD YoY เทียบ same months ของปีก่อน
+- Latest QTD QoQ/YoY เทียบจำนวนเดือนและตำแหน่งเดือนเดียวกันในไตรมาสฐาน
 - Markdown ภาษาไทยอ่านได้แบบ UTF-8
 
 ## Prompt สำหรับส่งให้ Codex
@@ -573,6 +583,7 @@ Growth rules:
 - รายไตรมาส แสดงเฉพาะ QoQ และ YoY เท่านั้น ห้ามแสดง MoM และ mom ต้องเป็น null
 - รายปี แสดงเฉพาะ YoY เท่านั้น ห้ามแสดง MoM/QoQ และ mom/qoq ต้องเป็น null
 - ปีล่าสุดที่เป็น YTD ให้ YoY เทียบกับ same months ของปีก่อน
+- ไตรมาสล่าสุดที่เป็น QTD ให้ QoQ เทียบเดือนลำดับเดียวกันของไตรมาสก่อน และ YoY เทียบเดือนเดียวกันของไตรมาสปีก่อน; แสดง comparison basis ให้ชัด
 
 Growth chart ต้องมี filter ตาม grain:
 - รายเดือน: ปุ่ม MoM และ YoY

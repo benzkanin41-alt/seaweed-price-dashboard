@@ -25,16 +25,17 @@ Interactive local/static dashboard สำหรับติดตามต้น
 
 ## Current Snapshot
 
-- Dashboard coverage: `2015-01` to `2026-07`
-- Latest month: `Jul 2026`
-- Latest monthly price: `19,530.7612 $/Ton`
-- Latest YTD: `2026 YTD Jan-Jul`
-- Latest YTD price: `23,183.3301 $/Ton`
+- Dashboard coverage: `2015-01` to `2026-08`
+- Latest month: `Aug 2026`
+- Latest monthly price: `20,308.5026 $/Ton`
+- Latest YTD: `2026 YTD Jan-Aug`
+- Latest YTD price: `23,066.1144 $/Ton`
 
 ## Growth Rules
 
 - Monthly view: show only `MoM` and `YoY`; `QoQ` is not shown and is stored as `null`
 - Quarterly view: show only `QoQ` and `YoY`; `MoM` is not shown and is stored as `null`
+- Incomplete latest quarter: QoQ and YoY compare matching month positions in the prior quarter and matching months in the prior-year quarter, respectively
 - Yearly view: show only `YoY`; `MoM` and `QoQ` are not shown and are stored as `null`
 
 อ่านรายละเอียดทั้งหมดได้ใน [`Seaweed price.md`](Seaweed%20price.md).
