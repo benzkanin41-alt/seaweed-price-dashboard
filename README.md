@@ -25,11 +25,14 @@ Interactive local/static dashboard สำหรับติดตามต้น
 
 ## Current Snapshot
 
-- Dashboard coverage: `2015-01` to `2026-08`
-- Latest month: `Aug 2026`
-- Latest monthly price: `20,308.5026 $/Ton`
-- Latest YTD: `2026 YTD Jan-Aug`
-- Latest YTD price: `23,066.1144 $/Ton`
+- Checked on: `2026-10-26`, queried through `2026-10`
+- Dashboard actual-data coverage: `2015-01` to `2026-09`
+- October 2026 monthly data: not yet returned by the official HS 121221 / Thailand endpoint; no October price is fabricated
+- Latest month: `Sep 2026`
+- Latest monthly price: `21,545.6546 $/Ton`; MoM `+6.1%`, YoY `-5.7%`
+- Latest quarter: complete `2026Q3`, price `20,674.6225 $/Ton`; QoQ `-9.3%`, YoY `-12.2%`
+- Latest YTD: `2026 YTD Jan-Sep`
+- Latest YTD price: `22,985.7903 $/Ton`; YoY `-2.2%`
 
 ## Growth Rules
 

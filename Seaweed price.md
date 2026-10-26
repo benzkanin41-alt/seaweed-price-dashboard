@@ -134,10 +134,10 @@ cntyNm=Thailand
 เดือนล่าสุด ณ ตอนสร้างต้นฉบับ:
 
 ```text
-2026-08
+2026-09
 ```
 
-Note: Updated 2026-09-25. The live Trade Data Korea endpoint returned HS 121221 for Thailand through 2026-08.
+Note: Updated 2026-10-26. Query through 2026-10 returned HS 121221 for Thailand through 2026-09 only. October monthly actuals are not yet returned by the source; do not create an October price or substitute aggregate interim trade figures.
 
 ## Data Model
 
@@ -303,20 +303,20 @@ YoY = current_ytd_weighted_price / previous_year_same_months_weighted_price - 1
 ตัวอย่าง validation ล่าสุดจากต้นฉบับ:
 
 ```text
-Latest monthly period: 2026-08
-Monthly MoM: +4.0%
+Latest monthly period: 2026-09
+Monthly MoM: +6.1%
 Monthly QoQ: null
-Monthly YoY: -11.1%
+Monthly YoY: -5.7%
 
 Latest quarter period: 2026Q3
 Quarterly MoM: null
-Quarterly QoQ: -13.4% (2026Q2 Apr-May basis)
-Quarterly YoY: -16.0% (2025Q3 Jul-Aug basis)
+Quarterly QoQ: -9.3% (2026Q2 full-quarter basis)
+Quarterly YoY: -12.2% (2025Q3 full-quarter basis)
 
-Latest year period: 2026 YTD Jan-Aug
+Latest year period: 2026 YTD Jan-Sep
 Yearly MoM: null
 Yearly QoQ: null
-Yearly YoY: -2.0%
+Yearly YoY: -2.2%
 ```
 
 ## Dashboard Layout
@@ -328,7 +328,8 @@ Yearly YoY: -2.0%
 1. Header
    - Title: `Seaweed Export Price from Korea to Thailand`
    - Subtitle: `HS 121221 | Country Thailand | Source Korea Customs Service Trade Statistics`
-   - Coverage pill เช่น `2015-01 to 2026-08 | latest Aug 2026`
+   - Coverage pill เช่น `2015-01 to 2026-09 | latest Sep 2026`
+   - แสดง requested period, latest actual period และเดือนที่ต้นทางยังไม่คืนข้อมูล โดยไม่เพิ่มแถวราคาที่ไม่มีจริง
 
 2. KPI cards
    - Latest selected grain price
@@ -518,18 +519,20 @@ Table header ต้องเปลี่ยนตาม grain และห้า
 ใช้ snapshot นี้เป็นจุดเทียบ sanity check เท่านั้น เพราะข้อมูล live อาจเพิ่มเดือนใหม่ในอนาคต
 
 ```text
-Generated date: 2026-09-25
+Generated date: 2026-10-26
 Dashboard start: 2015-01
-Dashboard latest period: 2026-08
-Latest month label: Aug 2026
-Latest month price: 20,308.5026 $/Ton
-Latest YTD label: 2026 YTD Jan-Aug
-Latest YTD price: 23,066.1144 $/Ton
+Dashboard latest period: 2026-09
+Requested period end: 2026-10
+Unavailable requested periods: 2026-10
+Latest month label: Sep 2026
+Latest month price: 21,545.6546 $/Ton
+Latest YTD label: 2026 YTD Jan-Sep
+Latest YTD price: 22,985.7903 $/Ton
 
-Monthly rows reviewed: 176
+Monthly rows reviewed: 177
 Workbook monthly rows reviewed: 165
-Live monthly rows added: 11
-Dashboard monthly rows: 140
+Live monthly rows added: 12
+Dashboard monthly rows: 141
 Dashboard quarter rows: 47
 Dashboard year rows: 12
 ```
